@@ -1,15 +1,19 @@
 package com.metodologia.flyseven.model;
 
 import com.fasterxml.jackson.annotation.*;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
-import org.springframework.lang.Nullable;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by efalcon
@@ -20,6 +24,7 @@ public class Vuelo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Integer idVuelo;
 
     @OneToOne
@@ -63,10 +68,11 @@ public class Vuelo {
     @OneToMany
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idVuelo")
     @JsonIdentityReference(alwaysAsId = true)
-    private List<Vuelo> escala;
+    @JsonProperty("escalas")
+    private List<Vuelo> escalas = new ArrayList<>();
 
     @JsonProperty("usuarioId")
-    public void setProjectById(Integer usuarioId) {
+    public void setUsuarioId(Integer usuarioId) {
         this.usuario = Usuario.fromId(usuarioId);
     }
 
@@ -86,12 +92,30 @@ public class Vuelo {
     }
 
     @JsonProperty("aeropuertoDestinoId")
-    public void setAeropuertoDestino(Integer aeropuertoId) {
+    private void setAeropuertoDestino(Integer aeropuertoId) {
         this.destino = Aeropuerto.fromId(aeropuertoId);
     }
 
     @JsonIgnore
     public void setDestino(Aeropuerto destino) {
-        this.destino = origen;
+        this.destino = destino;
+    }
+
+    @JsonProperty("escalas")
+    private void setEscalasId(List<Integer> escalasId) {
+        this.escalas = escalasId.stream()
+                .map(Vuelo::fromId)
+                .collect(Collectors.toList());
+    }
+
+    @JsonIgnore
+    public void setEscalas(List<Vuelo> vuelos) {
+        this.escalas = vuelos;
+    }
+
+    public static Vuelo fromId(Integer id) {
+        Vuelo vuelo = new Vuelo();
+        vuelo.setIdVuelo(id);
+        return vuelo;
     }
 }

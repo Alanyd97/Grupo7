@@ -20,7 +20,6 @@ public class VueloServiceImpl implements VueloService{
         this.vueloRepository = vueloRepository;
     }
 
-
     @Override
     public List<Vuelo> findAll() {
         return vueloRepository.findAll();

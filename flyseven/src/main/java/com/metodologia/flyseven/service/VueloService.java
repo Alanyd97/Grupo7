@@ -4,6 +4,9 @@ import com.metodologia.flyseven.model.Vuelo;
 
 import java.util.List;
 
+/**
+ * Created by efalcon
+ */
 public interface VueloService {
     List<Vuelo> findAll();
     Vuelo findById(Integer id);
