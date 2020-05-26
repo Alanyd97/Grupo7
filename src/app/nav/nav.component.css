@@ -1,0 +1,15 @@
+#nav{
+    background-color: #175CBA;
+}
+li a{
+    color: white !important;
+}
+li{
+    margin: 0 7%;
+}
+img{
+    height: 40%;
+}
+#cuenta{
+    width: 150px;
+}
