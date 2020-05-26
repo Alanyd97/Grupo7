@@ -12,24 +12,24 @@
             <div class="row">
               <div class="col-12 form-group">
                 <label >Origen</label>
-                <input type="text" class="form-control"  placeholder="Argentina...">
+                <input ngModel name="origen" #origen="ngModel"  type="text" class="form-control"  placeholder="Argentina...">
               </div>
               <div class="col-6">
                 <label>Ida</label>
-                <input type="date" class="form-control">
+                <input ngModel name="ida" #ida="ngModel" type="datetime-local" class="form-control">
               </div>
               <div class="col-6">
                 <label>Vuelta</label>
-                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input ngModel name="vuelta" #vuelta="ngModel"  type="datetime-local" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
               
               </div>
               <div class="col-12 form-group espacio">
                 <label for="exampleInputPassword1">Destino</label>
-                <input type="text" class="form-control" placeholder="Turquia...">
+                <input  type="text" name="destino" ngModel name="destino" #destino="ngModel"  class="form-control" placeholder="Turquia...">
               </div>
             </div>
           </form>
-          <input type="button" (click)="getDatos()" class="btn btn-primary" id="agregarViaje" value="Agregar">
+          <input type="button" (click)="getDatos(origen, destino, ida, vuelta)" class="btn btn-primary" id="agregarViaje" value="Agregar">
         </div>
       </div>
     </div>
