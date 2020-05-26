@@ -1,10 +1,13 @@
 *{
     font-family: "Roboto";
 }
+@import '~bootstrap/dist/css/bootstrap.min.css';
 html, body{
     background-color: #eeeeee;
 }
-
+.modal.show{
+    display: block;
+}
 
 button{
     background-color: #175CBA;
