@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
  */
 @Data
 @Entity
-public class Viaje {
+public class Viaje implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idViaje;
@@ -28,11 +29,15 @@ public class Viaje {
 
     private LocalDateTime vuelta;
 
-    @OneToMany
+    @ManyToMany
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idVuelo")
     @JsonIdentityReference(alwaysAsId = true)
     @JsonProperty("vuelosIds")
     private List<Vuelo> vuelos;
+
+    private String origen;
+
+    private String destino;
 
     @JsonIgnore
     public void setVuelos(List<Vuelo> vuelos) {

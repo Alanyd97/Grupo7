@@ -1,15 +1,19 @@
 export class Viaje {
   idViaje: Number;
-  idUsuario: Number;
+  usuarioId: Number;
   ida: Date;
   vuelta: Date;
-  vuelos: number[];
+  vuelosIds: number[];
+  origen: string;
+  destino: string;
 
-  constructor(idViaje: Number, idUsuario: Number, ida: Date, vuelta: Date, vuelos: number[]) {
+  constructor(idViaje: Number, usuarioId: Number, ida: Date, vuelta: Date, vuelosIds: number[], origen: string, destino: string) {
     this.idViaje = idViaje;
-    this.idUsuario = idUsuario;
+    this.usuarioId = usuarioId;
     this.ida = ida;
     this.vuelta = vuelta;
-    this.vuelos = vuelos;
+    this.vuelosIds = vuelosIds;
+    this.origen = origen;
+    this.destino = destino;
   }
 }

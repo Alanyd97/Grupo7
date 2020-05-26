@@ -15,6 +15,10 @@ export class ViajeService {
     return this.httpClient.get(this.URL);
   }
 
+  findById(id:number) {
+    return this.httpClient.get(this.URL + "/" + id);
+  }
+
   save(json: Viaje) {
     const httpOptions = {
       headers: new HttpHeaders({
