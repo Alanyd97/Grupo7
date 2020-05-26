@@ -21,6 +21,7 @@ public class Viaje {
     @OneToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idUsuario")
     @JsonIdentityReference(alwaysAsId = true)
+    @JsonProperty("usuarioId")
     private Usuario usuario;
 
     private LocalDateTime ida;
@@ -43,5 +44,15 @@ public class Viaje {
         this.vuelos = vuelosIds.stream()
                 .map(Vuelo::fromId)
                 .collect(Collectors.toList());
+    }
+
+    @JsonProperty("usuarioId")
+    public void setUsuarioId(Integer usuarioId) {
+        this.usuario = Usuario.fromId(usuarioId);
+    }
+
+    @JsonIgnore
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
