@@ -42,6 +42,7 @@ mvnw.cmd
 
 # dependencies
 /node_modules
+/ui/node_modules
 
 # profiling files
 chrome-profiler-events*.json
