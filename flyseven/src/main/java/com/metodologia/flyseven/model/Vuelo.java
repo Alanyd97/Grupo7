@@ -68,7 +68,7 @@ public class Vuelo {
     @OneToMany
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idVuelo")
     @JsonIdentityReference(alwaysAsId = true)
-    @JsonProperty("escalas")
+    @JsonProperty("escalaIds")
     private List<Vuelo> escalas = new ArrayList<>();
 
     @JsonProperty("usuarioId")
