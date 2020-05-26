@@ -1,9 +1,9 @@
-<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show':showModal}">
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show':mostrarModal}">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Modal title</h5>
-          <button type="button" id="cerrar" (click)="showModal = false" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" id="cerrar" (click)="mostrarModal = false" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -11,11 +11,11 @@
           <p>Modal body text goes here.</p>
         </div>
         <div class="modal-footer">
-          <input type="button" (click)="showModal = false" class="btn btn-primary" value="Cerrar">
+          <input type="button" (click)="mostrarModal = false" class="btn btn-primary" value="Cerrar">
         </div>
       </div>
     </div>
   </div>
-  <button (click)="showModal=true" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
+  <button (click)="mostrarModal=true" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    {{txtBoton}} <img src="{{url}}" alt="">
+  </button> 
