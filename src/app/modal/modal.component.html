@@ -1,21 +1,40 @@
 <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show':mostrarModal}">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+        <div class="d-flex modal-header">
+          <h5 class="modal-title">Agregar viaje</h5>
           <button type="button" id="cerrar" (click)="mostrarModal = false" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <input type="button" (click)="mostrarModal = false" class="btn btn-primary" value="Cerrar">
+          <form>
+            <div class="row">
+              <div class="col-12 form-group">
+                <label >Origen</label>
+                <input type="text" class="form-control"  placeholder="Argentina...">
+              </div>
+              <div class="col-6">
+                <label>Ida</label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="col-6">
+                <label>Vuelta</label>
+                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              
+              </div>
+              <div class="col-12 form-group espacio">
+                <label for="exampleInputPassword1">Destino</label>
+                <input type="text" class="form-control" placeholder="Turquia...">
+              </div>
+            </div>
+          </form>
+          <input type="button" (click)="mostrarModal = false" class="btn btn-primary" id="agregarViaje" value="Agregar">
         </div>
       </div>
     </div>
   </div>
+
   <button (click)="mostrarModal=true" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     {{txtBoton}} <img src="{{url}}" alt="">
   </button> 
