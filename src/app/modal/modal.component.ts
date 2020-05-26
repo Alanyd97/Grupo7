@@ -11,6 +11,10 @@ export class ModalComponent implements OnInit {
   @Input() url : string;
   constructor() { }
 
+  getDatos(){
+    
+  }
+
   ngOnInit(): void {
   }
 

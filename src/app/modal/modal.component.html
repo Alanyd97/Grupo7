@@ -29,12 +29,12 @@
               </div>
             </div>
           </form>
-          <input type="button" (click)="mostrarModal = false" class="btn btn-primary" id="agregarViaje" value="Agregar">
+          <input type="button" (click)="getDatos()" class="btn btn-primary" id="agregarViaje" value="Agregar">
         </div>
       </div>
     </div>
   </div>
 
-  <button (click)="mostrarModal=true" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button (click)="mostrarModal=true" type="button"  data-toggle="modal" data-target="#exampleModal">
     {{txtBoton}} <img src="{{url}}" alt="">
   </button> 
