@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "fronFlyseven"
+  "defaultProject": "fronFlyseven",
+  "cli": {
+    "analytics": false
+  }
 }
