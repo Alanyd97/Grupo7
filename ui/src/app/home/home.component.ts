@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   getViajes() {
     this.viajeService.findAll().subscribe(viajes => {
       this.viajes = viajes as Viaje;
-      console.log("consola:", this.viajes);
     });
   }
 
@@ -31,7 +30,6 @@ export class HomeComponent implements OnInit {
 
   }
   editar(x){
-    console.log("home: ", x);
     this.viajeService.update(x)
       .subscribe(e => this.getViajes());
   }
