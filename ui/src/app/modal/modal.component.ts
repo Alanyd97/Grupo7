@@ -16,15 +16,10 @@ export class ModalComponent implements OnInit {
   @Output() datosViaje = new EventEmitter<object>();
 
   getDatos(origen, destino, ida, vuelta){
-    this.viaje = new Viaje(1, ida, vuelta, [1], origen, destino);
+    this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], origen.viewModel, destino.viewModel);
     this.mostrarModal = false;
     console.log(this.viaje);
     this.datosViaje.emit(this.viaje);
-  }
-
-  save(n){
-    
-
   }
 
   ngOnInit(): void {

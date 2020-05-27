@@ -6,7 +6,10 @@
            </div>
            <div class="row d-flex justify-content-between boton">
                <div class="col-3">
-                  <app-modal [txtBoton]="'Agregar Viaje'" [url]="'../../assets/far.fa-times-circle.png'" (datosViaje)="agregarViaje($event)" ></app-modal>
+                  <app-modal [txtBoton]="'Agregar Viaje'"
+                             [url]="'../../assets/far.fa-times-circle.png'"
+                             (datosViaje)="agregarViaje($event)">
+                  </app-modal>
                </div>
                <div class="col-3 align-self-center ">
                    <select class="form-control" name="meses" id="meses">
@@ -20,7 +23,7 @@
    </div>
     <div class="row justify-content-center tabla">
         <div class="col-10">
-            <app-vtable [viajes]="viajes"></app-vtable> 
+            <app-vtable [viajes]="viajes"></app-vtable>
         </div>
     </div>
 </div>
