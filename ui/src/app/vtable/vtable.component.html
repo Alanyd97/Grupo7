@@ -18,7 +18,7 @@
       <td>{{viaje.vuelta}}</td>
       <td>{{viaje.descripcion}}</td>
       <td><button>Saber mas</button></td>
-      <td><app-modal [viajeAEditar]="viaje" (datosViaje)="editarViaje($event)" [titulo]="'Editar Viaje'" [txtBoton]="'Editar viaje'"></app-modal></td>
+      <td><app-modal [viajeAEditar]="viaje" (editViaje)="editarViaje($event)" [titulo]="'Editar Viaje'" [txtBoton]="'Editar viaje'"></app-modal></td>
     </tr>
   </tbody>
 </table>

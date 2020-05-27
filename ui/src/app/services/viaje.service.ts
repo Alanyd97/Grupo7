@@ -27,4 +27,13 @@ export class ViajeService {
     };
     return this.httpClient.post(this.URL, json, httpOptions);
   }
+
+  update(json : Viaje){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.httpClient.put(this.URL, json, httpOptions);
+  }
 }

@@ -9,16 +9,17 @@ import { SelectItem } from 'primeng';
   styleUrls: ['./vtable.component.css']
 })
 export class VtableComponent implements OnInit {
+  brands: SelectItem[];
   @Input() viaje : {};
   @Input() viajes: Viaje[];
-  brands: SelectItem[];
   @Input() esViaje: boolean;
   @Input() esPlan: boolean;
-  constructor(private viajeService: ViajeService) { }
+  
   @Output() edicionViaje = new EventEmitter<object>();
-
+  
+  constructor(private viajeService: ViajeService) { }
+  
   ngOnInit(): void {
-
     this.brands = [
       {label: 'Audi', value: 'Audi'},
       {label: 'BMW', value: 'BMW'},
@@ -34,7 +35,6 @@ export class VtableComponent implements OnInit {
   }
 
   editarViaje(x){
-    console.log("vTable",x)
     this.edicionViaje.emit(x);
   }
 

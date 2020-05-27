@@ -10,7 +10,7 @@ import { Viaje } from '../model/viaje';
 export class HomeComponent implements OnInit {
   showModal = false;
   viaje : Viaje;
-  viajes : Viaje[];
+  viajes : Viaje;
   url = 'http://localhost:8080/viaje';
   constructor(private viajeService: ViajeService) { }
 
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   getViajes() {
     this.viajeService.findAll().subscribe(viajes => {
-      this.viajes = viajes as Viaje[];
+      this.viajes = viajes as Viaje;
       console.log("consola:", this.viajes);
     });
   }
@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
 
   }
   editar(x){
-    console.log(x);
+    console.log("home: ", x);
+    this.viajeService.update(x)
+      .subscribe(e => this.getViajes());
   }
 }

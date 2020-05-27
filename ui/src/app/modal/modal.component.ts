@@ -14,7 +14,7 @@ export class ModalComponent implements OnInit {
   @Input() titulo : string;
   @Input() url : string;
   @Input() viajeAEditar : Viaje;
-  @Output() editarViaje = new EventEmitter<object>();
+  @Output() editViaje = new EventEmitter<object>();
   @Output() datosViaje = new EventEmitter<object>();
   
   constructor() {
@@ -28,11 +28,29 @@ export class ModalComponent implements OnInit {
     this.datosViaje.emit(this.viaje);
   }
 
+  editarViaje(nombre, destino, ida, vuelta, descripcion){
+    if (nombre){
+      this.viajeAEditar.nombre = nombre;
+    }
+    if (destino){
+      this.viajeAEditar.destino = destino;
+    }
+    if (ida){
+      this.viajeAEditar.ida = ida;
+    }
+    if (vuelta){
+      this.viajeAEditar.vuelta = vuelta;
+    }
+    if (descripcion){
+      this.viajeAEditar.descripcion = descripcion;
+    }
+    this.viajeAEditar = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
+    this.editViaje.emit(this.viajeAEditar);
+    
 
-  editar(){
-    this.mostrarModal=true;
-    console.log("modal: ", this.viajeAEditar);
+
   }
+
   ngOnInit(): void {
   }
 
