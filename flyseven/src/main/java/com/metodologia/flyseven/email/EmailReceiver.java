@@ -2,7 +2,9 @@ package com.metodologia.flyseven.email;
 
 import com.metodologia.flyseven.model.Aeropuerto;
 import com.metodologia.flyseven.model.Usuario;
+import com.metodologia.flyseven.model.Viaje;
 import com.metodologia.flyseven.model.Vuelo;
+import com.metodologia.flyseven.repository.ViajeRepository;
 import com.metodologia.flyseven.repository.VueloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +18,7 @@ import org.springframework.scheduling.support.PeriodicTrigger;
 import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Arrays;
 
 /**
  * Created by efalcon
@@ -23,11 +26,11 @@ import java.time.LocalTime;
 @Configuration
 public class EmailReceiver {
 
-    private VueloRepository vueloRepository;
+    private ViajeRepository viajeRepository;
 
     @Autowired
-    public EmailReceiver(VueloRepository vueloRepository) {
-        this.vueloRepository = vueloRepository;
+    public EmailReceiver(ViajeRepository viajeRepository) {
+        this.viajeRepository = viajeRepository;
     }
 
     @Bean
@@ -70,6 +73,14 @@ public class EmailReceiver {
         vuelo.setDuracion(duracion);
         vuelo.setInicio(LocalDateTime.now());
         vuelo.setFin(LocalDateTime.of(2021,2,3,1,3));
-        this.vueloRepository.save(vuelo);
+        Viaje viaje = new Viaje(1,
+                LocalDateTime.of(2020,5,1,1,1),
+                LocalDateTime.of(2020,12,1,1,1),
+                "MIAMEEE",
+                "Miami",
+                "En la pera",
+                usuario,
+                Arrays.asList(vuelo));
+        this.viajeRepository.save(viaje);
     }
 }
