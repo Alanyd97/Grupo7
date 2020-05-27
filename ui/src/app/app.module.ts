@@ -7,13 +7,15 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './modal/modal.component';
 import { NavComponent } from './nav/nav.component';
+import { BurgerOptionsComponent } from './burger-options/burger-options.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ModalComponent,
-    NavComponent
+    NavComponent,
+    BurgerOptionsComponent
   ],
   imports: [
     BrowserModule,
