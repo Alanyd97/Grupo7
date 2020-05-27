@@ -1,5 +1,6 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { Viaje } from '../model/viaje';
 
 @Component({
   selector: 'app-modal',
@@ -11,21 +12,14 @@ export class ModalComponent implements OnInit {
   mostrarModal = false;
   @Input() url : string;
   constructor() { }
-
-  viaje = {
-    'origen' : "",
-    'destino' : "",
-    'ida': "",
-    'vuelta': ""
-  }
+  viaje : Viaje;
+  @Output() datosViaje = new EventEmitter<object>();
 
   getDatos(origen, destino, ida, vuelta){
+    this.viaje = new Viaje(1, ida, vuelta, [1], origen, destino);
     this.mostrarModal = false;
-    this.viaje.origen = origen.value;
-    this.viaje.destino = destino.value;
-    this.viaje.ida = ida.value;
-    this.viaje.vuelta = vuelta.value;
-    this.save(this.viaje);
+    console.log(this.viaje);
+    this.datosViaje.emit(this.viaje);
   }
 
   save(n){

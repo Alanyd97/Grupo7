@@ -1,0 +1,18 @@
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Origen</th>
+      <th scope="col">Destino</th>
+      <th scope="col">Ida</th>
+      <th scope="col">Vuelta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let viaje of viajes"> 
+      <td>{{viaje.origen}}</td>
+      <td>{{viaje.destino}}</td>
+      <td>{{viaje.ida}}</td>
+      <td>{{viaje.vuelta}}</td>
+    </tr>
+  </tbody>
+</table>

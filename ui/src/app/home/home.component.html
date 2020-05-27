@@ -6,7 +6,7 @@
            </div>
            <div class="row d-flex justify-content-between boton">
                <div class="col-3">
-                  <app-modal [txtBoton]="'Agregar Viaje'" [url]="'../../assets/far.fa-times-circle.png'" ></app-modal>
+                  <app-modal [txtBoton]="'Agregar Viaje'" [url]="'../../assets/far.fa-times-circle.png'" (datosViaje)="agregarViaje($event)" ></app-modal>
                </div>
                <div class="col-3 align-self-center ">
                    <select class="form-control" name="meses" id="meses">
@@ -18,43 +18,9 @@
            </div>
    </div>
    </div>
-   <div class="row justify-content-center tabla">
-      <div class="col-10">
-       <table class="table table-bordered">
-           <thead>
-             <tr>
-               <th scope="col">Origen</th>
-               <th scope="col">Ida</th>
-               <th scope="col">Destino</th>
-               <th scope="col">Vuelta</th>
-               <th scope="col"></th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <th scope="row">1</th>
-               <td>Mark    </td>
-               <td>Otto</td>
-               <td>@mdo</td>
-               <td>@mdo</td>
-             </tr>
-             <tr>
-               <th scope="row">2</th>
-               <td>Jacob</td>
-               <td>Thornton</td>
-               <td>@fat</td>
-               <td>@mdo</td>
-             </tr>
-             <tr>
-               <th scope="row">3</th>
-               <td>Larry</td>
-               <td>the Bird</td>
-               <td>@twitter</td>
-               <td>@mdo</td>
-             </tr>
-           </tbody>
-         </table>
-      </div>
-   </div>
-   
-  </div>
+    <div class="row justify-content-center tabla">
+        <div class="col-10">
+            <app-vtable [viajes]="viajes"></app-vtable> 
+        </div>
+    </div>
+</div>

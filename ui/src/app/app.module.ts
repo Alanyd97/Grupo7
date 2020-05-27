@@ -7,22 +7,35 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './modal/modal.component';
 import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
+import { VtableComponent } from './vtable/vtable.component';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ViajeService } from './services/viaje.service';
+import { VueloService } from './services/vuelo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ModalComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent,
+    VtableComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    TableModule,
+    DropdownModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ViajeService, VueloService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
