@@ -6,7 +6,7 @@
            </div>
            <div class="row d-flex justify-content-between boton">
                <div class="col-3">
-                  <app-modal [txtBoton]="'Agregar Viaje'"
+                  <app-modal [titulo]="'Agregar Viaje'" [txtBoton]="'Agregar Viaje'"
                              [url]="'../../assets/far.fa-times-circle.png'"
                              (datosViaje)="agregarViaje($event)">
                   </app-modal>
@@ -23,7 +23,7 @@
    </div>
     <div class="row justify-content-center tabla">
         <div class="col-10">
-            <app-vtable [viajes]="viajes"></app-vtable>
+            <app-vtable (edicionViaje)="editar($event)" [viajes]="viajes"></app-vtable>
         </div>
     </div>
 </div>

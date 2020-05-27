@@ -8,12 +8,18 @@ import { Viaje } from '../model/viaje';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-  @Input() txtBoton : string;
   mostrarModal = false;
-  @Input() url : string;
-  constructor() { }
   viaje : Viaje;
+  @Input() txtBoton : string;
+  @Input() titulo : string;
+  @Input() url : string;
+  @Input() viajeAEditar : Viaje;
+  @Output() editarViaje = new EventEmitter<object>();
   @Output() datosViaje = new EventEmitter<object>();
+  
+  constructor() {
+    this.viajeAEditar = new Viaje(0, new Date,new Date,[1], 'Nombre..', 'Turquia...', 'Descripcion..');
+   }
 
   getDatos(nombre, destino, ida, vuelta, descripcion){
     this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
@@ -22,6 +28,11 @@ export class ModalComponent implements OnInit {
     this.datosViaje.emit(this.viaje);
   }
 
+
+  editar(){
+    this.mostrarModal=true;
+    console.log("modal: ", this.viajeAEditar);
+  }
   ngOnInit(): void {
   }
 

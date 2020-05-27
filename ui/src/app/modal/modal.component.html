@@ -2,7 +2,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="d-flex modal-header">
-          <h5 class="modal-title">Agregar viaje</h5>
+          <h5 class="modal-title">{{titulo}}</h5>
           <button type="button" id="cerrar" (click)="mostrarModal = false" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -12,7 +12,7 @@
             <div class="row">
               <div class="col-12 form-group">
                 <label >Nombre</label>
-                <input ngModel name="nombre" #nombre="ngModel"  type="text" class="form-control"  placeholder="Argentina...">
+                <input ngModel name="nombre" #nombre="ngModel"  type="text" class="form-control"  placeholder="{{viajeAEditar.nombre}}">
               </div>
               <div class="col-6">
                 <label>Ida</label>
@@ -20,24 +20,28 @@
               </div>
               <div class="col-6">
                 <label>Vuelta</label>
-                <input ngModel name="vuelta" #vuelta="ngModel"  type="datetime-local" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input ngModel name="vuelta" #vuelta="ngModel"  type="datetime-local" class="form-control">
               </div>
               <div class="col-12 form-group espacio">
                 <label>Destino</label>
-                <input  type="text" ngModel name="destino" #destino="ngModel"  class="form-control" placeholder="Turquia...">
+                <input  type="text" ngModel name="destino" #destino="ngModel"  class="form-control" placeholder="{{viajeAEditar.destino}}">
               </div>
               <div class="col-12 form-group espacio">
                 <label>Descripcion</label>
-                <textarea type="text" ngModel name="descripcion" #descripcion="ngModel"  class="form-control" placeholder="Descripcion..."></textarea>
+                <textarea type="text" ngModel name="descripcion" #descripcion="ngModel"  class="form-control" placeholder="{{viajeAEditar.descripcion}}"></textarea>
               </div>
             </div>
           </form>
-          <input type="button" (click)="getDatos(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Agregar">
+          <input *ngIf="titulo == 'Agregar viaje'" type="button" (click)="getDatos(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Agregar">
+          <input *ngIf="titulo == 'Editar Viaje'" type="button" class="btn btn-primary" id="agregarViaje" value="Editar">
         </div>
       </div>
     </div>
   </div>
-
-  <button (click)="mostrarModal=true" type="button"  data-toggle="modal" data-target="#exampleModal">
+  
+  <button *ngIf="titulo == 'Agregar Viaje'" (click)="mostrarModal=true" type="button"  data-toggle="modal" data-target="#exampleModal">
+    {{txtBoton}} <img src="{{url}}" alt="">
+  </button>
+  <button *ngIf="titulo == 'Editar Viaje'" (click)="editar()" type="button"  data-toggle="modal" data-target="#exampleModal">
     {{txtBoton}} <img src="{{url}}" alt="">
   </button>

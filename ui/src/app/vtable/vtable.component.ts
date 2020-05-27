@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ViajeService } from '../services/viaje.service';
 import { Viaje } from '../model/viaje';
 import { SelectItem } from 'primeng';
@@ -15,6 +15,7 @@ export class VtableComponent implements OnInit {
   @Input() esViaje: boolean;
   @Input() esPlan: boolean;
   constructor(private viajeService: ViajeService) { }
+  @Output() edicionViaje = new EventEmitter<object>();
 
   ngOnInit(): void {
 
@@ -31,6 +32,12 @@ export class VtableComponent implements OnInit {
       {label: 'Volvo', value: 'Volvo'}
     ];
   }
+
+  editarViaje(x){
+    console.log("vTable",x)
+    this.edicionViaje.emit(x);
+  }
+
 
   // onRowEditInit(car: Car) {
   //   this.clonedCars[car.vin] = {...car};
