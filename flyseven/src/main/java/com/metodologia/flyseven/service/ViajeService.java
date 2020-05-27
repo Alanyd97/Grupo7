@@ -13,4 +13,5 @@ public interface ViajeService {
     Viaje save(Viaje viaje);
     Viaje update(Viaje viaje);
     void delete(Integer id);
+    boolean existsById(Integer idViaje);
 }

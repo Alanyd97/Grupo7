@@ -1,6 +1,6 @@
 export class Viaje {
-  idViaje: Number;
-  usuarioId: Number;
+  idViaje: number;
+  usuarioId: number;
   ida: Date;
   vuelta: Date;
   vuelosIds: number[];
@@ -8,7 +8,7 @@ export class Viaje {
   destino: string;
   descripcion: string;
 
-  constructor(usuarioId: Number, ida: Date, vuelta: Date, vuelosIds: number[], nombre: string, destino: string, descripcion: string) {
+  constructor(usuarioId: number, ida: Date, vuelta: Date, vuelosIds: number[], nombre: string, destino: string, descripcion: string, idViaje?: number) {
     this.usuarioId = usuarioId;
     this.ida = ida;
     this.vuelta = vuelta;
@@ -16,5 +16,6 @@ export class Viaje {
     this.nombre = nombre;
     this.destino = destino;
     this.descripcion = descripcion;
+    this.idViaje = idViaje;
   }
 }

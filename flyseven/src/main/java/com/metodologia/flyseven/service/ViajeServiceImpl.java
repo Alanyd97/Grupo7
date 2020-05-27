@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by efalcon
@@ -39,11 +40,26 @@ public class ViajeServiceImpl implements ViajeService {
 
     @Override
     public Viaje update(Viaje viaje) {
-        return viajeRepository.save(viaje);
+        Viaje one = viajeRepository.getOne(viaje.getIdViaje());
+        if(Objects.nonNull(one)) {
+            one.setNombre(viaje.getNombre());
+            one.setDestino(viaje.getDestino());
+            one.setVuelta(viaje.getVuelta());
+            one.setIda(viaje.getIda());
+            one.setVuelos(viaje.getVuelos());
+            one.setDescripcion(viaje.getDescripcion());
+            return viajeRepository.save(one);
+        }
+        throw new IllegalArgumentException("El id del viaje no existe");
     }
 
     @Override
     public void delete(Integer id) {
         viajeRepository.deleteById(id);
+    }
+
+    @Override
+    public boolean existsById(Integer idViaje) {
+        return viajeRepository.existsById(idViaje);
     }
 }

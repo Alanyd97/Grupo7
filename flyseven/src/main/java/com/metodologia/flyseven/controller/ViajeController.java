@@ -33,13 +33,13 @@ public class ViajeController {
     }
 
     @PostMapping
-    public Viaje save(@RequestBody Viaje Viaje) {
-        return viajeService.save(Viaje);
+    public Viaje save(@RequestBody Viaje viaje) {
+        return viajeService.save(viaje);
     }
 
     @PutMapping
-    public Viaje update(@RequestBody Viaje Viaje) {
-        return viajeService.update(Viaje);
+    public Viaje update(@RequestBody Viaje viaje) {
+        return viajeService.update(viaje);
     }
 
     @DeleteMapping

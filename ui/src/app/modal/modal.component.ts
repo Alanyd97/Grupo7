@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit {
   @Input() viajeAEditar : Viaje;
   @Output() editViaje = new EventEmitter<object>();
   @Output() datosViaje = new EventEmitter<object>();
-  
+
   constructor() {
     this.viajeAEditar = new Viaje(0, new Date,new Date,[1], 'Nombre..', 'Turquia...', 'Descripcion..');
    }
@@ -44,11 +44,8 @@ export class ModalComponent implements OnInit {
     if (descripcion){
       this.viajeAEditar.descripcion = descripcion;
     }
-    this.viajeAEditar = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
+    this.viajeAEditar = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel, this.viajeAEditar.idViaje);
     this.editViaje.emit(this.viajeAEditar);
-    
-
-
   }
 
   ngOnInit(): void {
