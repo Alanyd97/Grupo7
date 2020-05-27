@@ -17,6 +17,7 @@ import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class FlysevenApplication implements CommandLineRunner {
@@ -71,11 +72,14 @@ public class FlysevenApplication implements CommandLineRunner {
         vuelo.setInicio(LocalDateTime.now());
         vuelo.setFin(LocalDateTime.of(2021,2,3,1,3));
 
-        Viaje viaje = new Viaje();
-        viaje.setUsuario(usuario);
-        ArrayList<Vuelo> vuelos = new ArrayList<>();
-        vuelos.add(vuelo);
-        viaje.setVuelos(vuelos);
+        Viaje viaje = new Viaje(1,
+                LocalDateTime.of(2020,5,1,1,1),
+                LocalDateTime.of(2020,12,1,1,1),
+                "MIAMEEE",
+                "Miami",
+                "En la pera",
+                usuario,
+                Arrays.asList(vuelo));
 
         usuarioRepository.save(usuario);
         aeropuertoRepository.save(aeropuerto);

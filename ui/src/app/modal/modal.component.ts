@@ -15,8 +15,8 @@ export class ModalComponent implements OnInit {
   viaje : Viaje;
   @Output() datosViaje = new EventEmitter<object>();
 
-  getDatos(origen, destino, ida, vuelta){
-    this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], origen.viewModel, destino.viewModel);
+  getDatos(nombre, destino, ida, vuelta, descripcion){
+    this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
     this.mostrarModal = false;
     console.log(this.viaje);
     this.datosViaje.emit(this.viaje);

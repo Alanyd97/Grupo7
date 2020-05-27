@@ -17,10 +17,6 @@ export class VtableComponent implements OnInit {
   constructor(private viajeService: ViajeService) { }
 
   ngOnInit(): void {
-    this.viajeService.findAll().subscribe(viajes => {
-      this.viajes = viajes as Viaje[];
-      this.getDatesFromFirstVuelo();
-    });
 
     this.brands = [
       {label: 'Audi', value: 'Audi'},
@@ -34,10 +30,6 @@ export class VtableComponent implements OnInit {
       {label: 'VW', value: 'VW'},
       {label: 'Volvo', value: 'Volvo'}
     ];
-  }
-
-  getDatesFromFirstVuelo() {
-
   }
 
   // onRowEditInit(car: Car) {

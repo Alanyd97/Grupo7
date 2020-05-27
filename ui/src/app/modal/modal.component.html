@@ -11,8 +11,8 @@
           <form>
             <div class="row">
               <div class="col-12 form-group">
-                <label >Origen</label>
-                <input ngModel name="origen" #origen="ngModel"  type="text" class="form-control"  placeholder="Argentina...">
+                <label >Nombre</label>
+                <input ngModel name="nombre" #nombre="ngModel"  type="text" class="form-control"  placeholder="Argentina...">
               </div>
               <div class="col-6">
                 <label>Ida</label>
@@ -24,11 +24,15 @@
               </div>
               <div class="col-12 form-group espacio">
                 <label>Destino</label>
-                <input  type="text" name="destino" ngModel name="destino" #destino="ngModel"  class="form-control" placeholder="Turquia...">
+                <input  type="text" ngModel name="destino" #destino="ngModel"  class="form-control" placeholder="Turquia...">
+              </div>
+              <div class="col-12 form-group espacio">
+                <label>Descripcion</label>
+                <textarea type="text" ngModel name="descripcion" #descripcion="ngModel"  class="form-control" placeholder="Descripcion..."></textarea>
               </div>
             </div>
           </form>
-          <input type="button" (click)="getDatos(origen, destino, ida, vuelta)" class="btn btn-primary" id="agregarViaje" value="Agregar">
+          <input type="button" (click)="getDatos(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Agregar">
         </div>
       </div>
     </div>

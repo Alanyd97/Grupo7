@@ -24,15 +24,6 @@ public class ViajeServiceImpl implements ViajeService {
     @Override
     public List<Viaje> findAll() {
         List<Viaje> all = viajeRepository.findAll();
-        all.forEach(viaje -> {
-            List<Vuelo> vuelos = viaje.getVuelos();
-            if(!vuelos.isEmpty()) {
-                viaje.setOrigen(vuelos.get(0).getOrigen().getPais());
-                viaje.setDestino(vuelos.get(vuelos.size() - 1).getDestino().getPais());
-                viaje.setIda(vuelos.get(0).getInicio());
-                viaje.setVuelta(vuelos.get(vuelos.size() - 1).getFin());
-            }
-        });
         return all;
     }
 

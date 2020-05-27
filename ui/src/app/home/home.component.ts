@@ -10,14 +10,23 @@ import { Viaje } from '../model/viaje';
 export class HomeComponent implements OnInit {
   showModal = false;
   viaje : Viaje;
-  viajes : [];
+  viajes : Viaje[];
   url = 'http://localhost:8080/viaje';
   constructor(private viajeService: ViajeService) { }
 
   ngOnInit(): void {
+    this.getViajes();
+  }
+
+  getViajes() {
+    this.viajeService.findAll().subscribe(viajes => {
+      this.viajes = viajes as Viaje[];
+    });
   }
 
   agregarViaje(x){
-    this.viajeService.save(x);
+    this.viajeService.save(x)
+      .subscribe(e => this.getViajes());
+
   }
 }
