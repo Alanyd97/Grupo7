@@ -12,28 +12,28 @@
             <div class="row">
               <div class="col-12 form-group">
                 <label >Nombre</label>
-                <input ngModel name="nombre" #nombre="ngModel"  type="text" class="form-control"  placeholder="{{viajeAEditar.nombre}}">
+                <input ngModel name="nombre"   #nombre="ngModel"  type="text" class="form-control"  placeholder="{{viajeAEditar.nombre}}">
               </div>
               <div class="col-6">
                 <label>Ida</label>
-                <input ngModel name="ida" #ida="ngModel" type="datetime-local" class="form-control">
+                <input ngModel name="ida"   #ida="ngModel" type="datetime-local" class="form-control">
               </div>
               <div class="col-6">
                 <label>Vuelta</label>
-                <input ngModel name="vuelta" #vuelta="ngModel"  type="datetime-local" class="form-control">
+                <input ngModel name="vuelta"   #vuelta="ngModel"  type="datetime-local" class="form-control">
               </div>
               <div class="col-12 form-group espacio">
                 <label>Destino</label>
-                <input  type="text" ngModel name="destino" #destino="ngModel"  class="form-control" placeholder="{{viajeAEditar.destino}}">
+                <input  type="text"    ngModel name="destino" #destino="ngModel"  class="form-control" placeholder="{{viajeAEditar.destino}}">
               </div>
               <div class="col-12 form-group espacio">
                 <label>Descripcion</label>
-                <textarea type="text" ngModel name="descripcion" #descripcion="ngModel"  class="form-control" placeholder="{{viajeAEditar.descripcion}}"></textarea>
+                <textarea type="text"  ngModel name="descripcion"   #descripcion="ngModel"  class="form-control" placeholder="{{viajeAEditar.descripcion}}"></textarea>
               </div>
             </div>
           </form>
-          <input *ngIf="titulo == 'Agregar Viaje'" type="button" (click)="getDatos(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Agregar">
-          <input *ngIf="titulo == 'Editar Viaje'" type="button" (click)="editarViaje(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Editar">
+          <input *ngIf="titulo == 'Agregar Viaje'" type="sumbit" (click)="getDatos(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Agregar">
+          <input *ngIf="titulo == 'Editar Viaje'" type="sumbit" (click)="editarViaje(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Editar">
         </div>
       </div>
     </div>

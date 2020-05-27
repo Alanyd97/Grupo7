@@ -24,31 +24,31 @@ export class ModalComponent implements OnInit {
   getDatos(nombre, destino, ida, vuelta, descripcion){
     this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
     this.mostrarModal = false;
-    console.log(this.viaje);
     this.datosViaje.emit(this.viaje);
   }
 
   editarViaje(nombre, destino, ida, vuelta, descripcion){
-    if (nombre){
-      this.viajeAEditar.nombre = nombre;
+    if (nombre.viewModel){git ad
+      this.viajeAEditar.nombre = nombre.viewModel;
     }
-    if (destino){
-      this.viajeAEditar.destino = destino;
+    if (destino.viewModel){
+      this.viajeAEditar.destino = destino.viewModel;
     }
-    if (ida){
-      this.viajeAEditar.ida = ida;
+    if (ida.viewModel){
+      this.viajeAEditar.ida = ida.viewModel;
     }
-    if (vuelta){
-      this.viajeAEditar.vuelta = vuelta;
+    if (vuelta.viewModel){
+      this.viajeAEditar.vuelta = vuelta.viewModel;
     }
-    if (descripcion){
-      this.viajeAEditar.descripcion = descripcion;
+    if (descripcion.viewModel){
+      this.viajeAEditar.descripcion = descripcion.viewModel;
     }
-    this.viajeAEditar = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel, this.viajeAEditar.idViaje);
+    //this.viajeAEditar = new Viaje(1, this.viajeAEditar.ida, this.viajeAEditar.vuelta, [1], this.viajeAEditar.nombre, this.viajeAEditar.destino, this.viajeAEditar.descripcion, this.viajeAEditar.idViaje);
     this.editViaje.emit(this.viajeAEditar);
   }
 
   ngOnInit(): void {
+
   }
 
 }
