@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ViajeService } from './services/viaje.service';
 import { VueloService } from './services/vuelo.service';
+import { BurgerOptionsComponent } from './burger-options/burger-options.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { VueloService } from './services/vuelo.service';
     ModalComponent,
     NavComponent,
     FooterComponent,
-    VtableComponent
+    VtableComponent,
+    BurgerOptionsComponent
   ],
   imports: [
     BrowserModule,

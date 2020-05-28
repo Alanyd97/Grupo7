@@ -3,13 +3,26 @@
 }
 li a{
     color: white !important;
+    font-size: large;
+}
+a:hover{
+    cursor: pointer;
 }
 li{
-    margin: 0 7%;
+    margin: 0 15%;
+    border-bottom: 3px #175CBA solid;
 }
-img{
+li:hover{
+    border-bottom: 3px white solid;
+}
+.logo{
     height: 40%;
 }
 #cuenta{
     width: 150px;
+}
+
+
+.iconRight{
+    margin: 0 0 0 5%;
 }
