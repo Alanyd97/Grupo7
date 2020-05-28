@@ -25,10 +25,8 @@ export class HomeComponent implements OnInit {
   }
 
   agregarViaje(x){
-    if(x.destino && x.origen && x.ida && x.vuelta){
       this.viajeService.save(x)
         .subscribe(e => this.getViajes());
-    }
   }
   editar(x){
     this.viajeService.update(x)
