@@ -31,7 +31,7 @@
                 <textarea type="text"  ngModel name="descripcion"   #descripcion="ngModel"  class="form-control" placeholder="{{viajeAEditar.descripcion}}"></textarea>
               </div>
             </div>
-            <p *ngIf="error" class="error">Por favor, completar todos los campos</p>
+            <p *ngIf="error" class="error">Por favor, completar todos los</p>
           </form>
           <input *ngIf="titulo == 'Agregar Viaje'" type="sumbit" (click)="getDatos(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Agregar">
           <input *ngIf="titulo == 'Editar Viaje'" type="sumbit" (click)="editarViaje(nombre, destino, ida, vuelta, descripcion)" class="btn btn-primary" id="agregarViaje" value="Editar">

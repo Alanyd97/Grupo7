@@ -23,9 +23,14 @@ export class ModalComponent implements OnInit {
    }
 
   getDatos(nombre, destino, ida, vuelta, descripcion){
-      this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
-      this.mostrarModal = false;
-      this.datosViaje.emit(this.viaje);
+      console.log(ida.viewModel != "");
+      if(ida.viewModel != ""&& vuelta.viewModel != "" && nombre.viewModel != "" && descripcion.viewModel != "" && destino.viewModel != ""){
+        this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
+        this.mostrarModal = false;
+        this.datosViaje.emit(this.viaje); 
+      }else{
+        this.error = true;
+      }
   }
 
   editarViaje(nombre, destino, ida, vuelta, descripcion){
