@@ -28,7 +28,7 @@ export class ModalComponent implements OnInit {
   }
 
   editarViaje(nombre, destino, ida, vuelta, descripcion){
-    if (nombre.viewModel){git ad
+    if (nombre.viewModel){
       this.viajeAEditar.nombre = nombre.viewModel;
     }
     if (destino.viewModel){
