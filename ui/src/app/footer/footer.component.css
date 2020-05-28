@@ -1,3 +1,9 @@
+*{
+    padding:0;
+}
+.izquierda{
+    margin: 0 0 0 5%
+}
 footer{
     background-color: white;
     padding: 3% 0;

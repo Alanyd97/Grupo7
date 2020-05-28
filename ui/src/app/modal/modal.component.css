@@ -19,3 +19,6 @@ h5{
 div.modal-content{
     background-color: #cccccc;
 }
+.modal{
+    background-color: rgba(0, 0, 0, 0.7);
+}
