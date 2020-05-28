@@ -11,6 +11,7 @@ export class ModalComponent implements OnInit {
   mostrarModal = false;
   viaje : Viaje;
   @Input() txtBoton : string;
+  error : boolean= false;
   @Input() titulo : string;
   @Input() url : string;
   @Input() viajeAEditar : Viaje;
@@ -22,9 +23,13 @@ export class ModalComponent implements OnInit {
    }
 
   getDatos(nombre, destino, ida, vuelta, descripcion){
-    this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
-    this.mostrarModal = false;
-    this.datosViaje.emit(this.viaje);
+    if (nombre.viewModel && destino.viewModel &&ida.viewModel && vuelta.viewModel && descripcion.viewModel){
+      this.viaje = new Viaje(1, ida.viewModel, vuelta.viewModel, [1], nombre.viewModel, destino.viewModel, descripcion.viewModel);
+      this.mostrarModal = false;
+      this.datosViaje.emit(this.viaje);
+    }else{
+      this.error = true;
+    }
   }
 
   editarViaje(nombre, destino, ida, vuelta, descripcion){
