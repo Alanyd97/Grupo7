@@ -74,16 +74,23 @@ public class FlysevenApplication implements CommandLineRunner {
         vuelo.setFin(LocalDateTime.of(2021,2,3,1,3));
 
         List<Viaje> viajes = new ArrayList<>();
-        for(int i = 1; i < 6; i++) {
-            viajes.add(new Viaje(i,
-                    LocalDateTime.of(2020,5,1,1,1),
-                    LocalDateTime.of(2020,12,1,1,1),
-                    "MIAMEEE" + i,
-                    "Miami" +i,
-                    "En la pera" +i,
-                    usuario,
-                    Arrays.asList(vuelo)));
-        }
+        viajes.add(new Viaje(1,
+                LocalDateTime.of(2020,5,15,1,1),
+                LocalDateTime.of(2020,6,1,1,1),
+                "Visita a Arg",
+                "Argentina",
+                "Abuelos",
+                usuario,
+                Arrays.asList(vuelo)));
+
+        viajes.add(new Viaje(2,
+                LocalDateTime.of(2020,6,1,1,1),
+                LocalDateTime.of(2020,7,1,1,1),
+                "Visita Colombia",
+                "Colombia",
+                "Turismo",
+                usuario,
+                Arrays.asList(vuelo)));
 
         usuarioRepository.save(usuario);
         aeropuertoRepository.save(aeropuerto);

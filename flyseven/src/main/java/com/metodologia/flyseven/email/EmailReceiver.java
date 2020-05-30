@@ -57,23 +57,8 @@ public class EmailReceiver {
 
     public void addVueloOnMessage() {
         Usuario usuario = Usuario.fromId(1);
-        Aeropuerto aeropuerto = Aeropuerto.fromId(1);
-        Aeropuerto aeropuerto2 = Aeropuerto.fromId(2);
-        Vuelo vuelo = new Vuelo();
-        vuelo.setUsuario(usuario);
-        vuelo.setAerolinea("Aerolinea");
-        vuelo.setAeronave("HARDCODED AEROLINE");
-        vuelo.setAsiento("Asiento");
-        vuelo.setClase("ClaseDelVuelo");
-        vuelo.setCodReserva(12314123);
-        vuelo.setDestino(aeropuerto);
-        vuelo.setOrigen(aeropuerto2);
-        vuelo.setDistancia(12345.2F);
-        Time duracion = Time.valueOf(LocalTime.now());
-        vuelo.setDuracion(duracion);
-        vuelo.setInicio(LocalDateTime.now());
-        vuelo.setFin(LocalDateTime.of(2021,2,3,1,3));
-        Viaje viaje = new Viaje(1,
+        Vuelo vuelo = Vuelo.fromId(1);
+        Viaje viaje = new Viaje(0,
                 LocalDateTime.of(2020,5,1,1,1),
                 LocalDateTime.of(2020,12,1,1,1),
                 "MIAMEEE",
