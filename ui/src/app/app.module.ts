@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViajeService } from './services/viaje.service';
 import { VueloService } from './services/vuelo.service';
 import { BurgerOptionsComponent } from './burger-options/burger-options.component';
+import { MapSmallComponent } from './map-small/map-small.component';
+import { MapMediumComponent } from './map-medium/map-medium.component';
+import { ViajesComponent } from './viajes/viajes.component';
+import { InfoViajeComponent } from './info-viaje/info-viaje.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { BurgerOptionsComponent } from './burger-options/burger-options.componen
     NavComponent,
     FooterComponent,
     VtableComponent,
-    BurgerOptionsComponent
+    BurgerOptionsComponent,
+    MapSmallComponent,
+    MapMediumComponent,
+    ViajesComponent,
+    InfoViajeComponent
   ],
   imports: [
     BrowserModule,
