@@ -1,3 +1,11 @@
 .table{
     background-color: white;
 }
+
+.centrado {
+    text-align: center;
+}
+
+.negrita {
+    font-weight: bold;
+}

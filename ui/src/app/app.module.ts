@@ -16,8 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViajeService } from './services/viaje.service';
 import { VueloService } from './services/vuelo.service';
 import { BurgerOptionsComponent } from './burger-options/burger-options.component';
-import { EstadisticasComponent } from './estadisticas/estadisticas.component';
-import { CardEstadisticasComponent } from './estadisticas/card-estadisticas/card-estadisticas.component';
+import { MapSmallComponent } from './map-small/map-small.component';
+import { MapMediumComponent } from './map-medium/map-medium.component';
+import { ViajesComponent } from './viajes/viajes.component';
+import { InfoViajeComponent } from './info-viaje/info-viaje.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,10 @@ import { CardEstadisticasComponent } from './estadisticas/card-estadisticas/card
     FooterComponent,
     VtableComponent,
     BurgerOptionsComponent,
-    EstadisticasComponent,
-    CardEstadisticasComponent
+    MapSmallComponent,
+    MapMediumComponent,
+    ViajesComponent,
+    InfoViajeComponent
   ],
   imports: [
     BrowserModule,

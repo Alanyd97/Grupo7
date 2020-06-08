@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <table class="table" *ngIf="infoViaje == 'realizados'" >
+=======
+<table class="table" *ngIf="esViaje">
+>>>>>>> dad91c5cc52cd5c54a8fa7d069659a5cb7560bdd
   <thead class="thead-light">
     <tr>
       <th scope="col">Nombre</th>
@@ -21,4 +25,29 @@
       <td><app-modal [viajeAEditar]="viaje" (editViaje)="editarViaje($event)" [titulo]="'Editar Viaje'" [txtBoton]="'Editar viaje'"></app-modal></td>
     </tr>
   </tbody>
+<<<<<<< HEAD
 </table>  
+=======
+</table>
+
+<table class="table" *ngIf="esPlan">
+  <thead class="thead-light" class="centrado negrita">
+    <tr>
+      <th scope="col">Reserva de hotel</th>
+      <th scope="col">Dia</th>
+      <th scope="col">Hora inicio</th>
+      <th scope="col">Hora de finalizacion</th>
+      <th scope="col">Tipo</th>
+    </tr>
+  </thead>
+  <tbody class="centrado">
+    <tr *ngFor="let plan of planes">
+      <td>{{plan.reserva}}</td>
+      <td>{{plan.dia}}</td>
+      <td>{{plan.horaInicio}}</td>
+      <td>{{plan.horaFinalizacion}}</td>
+      <td>{{plan.tipo}}</td>
+    </tr>
+  </tbody>
+</table>
+>>>>>>> dad91c5cc52cd5c54a8fa7d069659a5cb7560bdd

@@ -1,0 +1,14 @@
+<div class="row margen">
+    <div class="col-4">
+        <app-info-viaje></app-info-viaje>
+    </div>
+    <div class="col-8">
+        <app-vtable [esPlan]="true" [planes]="planes"></app-vtable>
+        <div class="centrar">
+            <button class="btn btn-primary" id="agregar-plan">Agregar plan</button>
+        </div>
+        <div class="centrar">
+            <app-map-medium></app-map-medium>
+        </div>
+    </div>
+</div>

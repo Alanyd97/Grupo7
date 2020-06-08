@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ViajeService } from '../services/viaje.service';
 import { Viaje } from '../model/viaje';
+import { Plan } from '../model/plan';
 import { SelectItem } from 'primeng';
 
 @Component({
@@ -16,6 +17,7 @@ export class VtableComponent implements OnInit {
   @Input() viajes: Viaje[];
   @Input() esViaje: boolean;
   @Input() esPlan: boolean;
+  @Input() planes: Plan[];
   
   @Output() edicionViaje = new EventEmitter<object>();
   
