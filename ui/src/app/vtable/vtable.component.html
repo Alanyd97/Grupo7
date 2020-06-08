@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" *ngIf="infoViaje == 'realizados'" >
   <thead class="thead-light">
     <tr>
       <th scope="col">Nombre</th>
@@ -21,4 +21,4 @@
       <td><app-modal [viajeAEditar]="viaje" (editViaje)="editarViaje($event)" [titulo]="'Editar Viaje'" [txtBoton]="'Editar viaje'"></app-modal></td>
     </tr>
   </tbody>
-</table>
+</table>  

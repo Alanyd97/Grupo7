@@ -10,6 +10,8 @@ import { SelectItem } from 'primeng';
 })
 export class VtableComponent implements OnInit {
   brands: SelectItem[];
+  
+  @Input() infoViaje: string = "realizados";
   @Input() viaje : {};
   @Input() viajes: Viaje[];
   @Input() esViaje: boolean;

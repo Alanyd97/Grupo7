@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViajeService } from './services/viaje.service';
 import { VueloService } from './services/vuelo.service';
 import { BurgerOptionsComponent } from './burger-options/burger-options.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { CardEstadisticasComponent } from './estadisticas/card-estadisticas/card-estadisticas.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { BurgerOptionsComponent } from './burger-options/burger-options.componen
     NavComponent,
     FooterComponent,
     VtableComponent,
-    BurgerOptionsComponent
+    BurgerOptionsComponent,
+    EstadisticasComponent,
+    CardEstadisticasComponent
   ],
   imports: [
     BrowserModule,
