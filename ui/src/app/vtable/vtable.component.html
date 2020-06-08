@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<table class="table" *ngIf="infoViaje == 'realizados'" >
-=======
 <table class="table" *ngIf="esViaje">
->>>>>>> dad91c5cc52cd5c54a8fa7d069659a5cb7560bdd
   <thead class="thead-light">
     <tr>
       <th scope="col">Nombre</th>
@@ -25,9 +21,6 @@
       <td><app-modal [viajeAEditar]="viaje" (editViaje)="editarViaje($event)" [titulo]="'Editar Viaje'" [txtBoton]="'Editar viaje'"></app-modal></td>
     </tr>
   </tbody>
-<<<<<<< HEAD
-</table>  
-=======
 </table>
 
 <table class="table" *ngIf="esPlan">
@@ -50,4 +43,3 @@
     </tr>
   </tbody>
 </table>
->>>>>>> dad91c5cc52cd5c54a8fa7d069659a5cb7560bdd

@@ -12,10 +12,7 @@ export class EstadisticasComponent implements OnInit {
 
 
   constructor() { 
-    this.estadisticas.push({
-      titulo:'alohatitle',
-      dato: 'otrodato'
-    })
+    
   }
 
   ngOnInit(): void {
