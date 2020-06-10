@@ -20,12 +20,7 @@ import java.util.stream.Collectors;
  */
 @Entity
 @Data
-public class Vuelo {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Integer idVuelo;
+public class Vuelo extends Plan {
 
     @OneToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idUsuario")
@@ -60,10 +55,6 @@ public class Vuelo {
     private Float distancia;
 
     private Integer puerta;
-
-    private LocalDateTime inicio;
-
-    private LocalDateTime fin;
 
     @OneToMany
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idVuelo")
@@ -115,7 +106,7 @@ public class Vuelo {
 
     public static Vuelo fromId(Integer id) {
         Vuelo vuelo = new Vuelo();
-        vuelo.setIdVuelo(id);
+        vuelo.setId(id);
         return vuelo;
     }
 }

@@ -40,19 +40,19 @@ public class Viaje implements Serializable {
     private Usuario usuario;
 
     @ManyToMany
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idVuelo")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
-    @JsonProperty("vuelosIds")
-    private List<Vuelo> vuelos;
+    @JsonProperty("planesIds")
+    private List<Plan> planes;
 
     @JsonIgnore
-    public void setVuelos(List<Vuelo> vuelos) {
-        this.vuelos = vuelos;
+    public void setVuelos(List<Plan> vuelos) {
+        this.planes = vuelos;
     }
 
-    @JsonProperty("vuelosIds")
-    public void setVuelosIds(List<Integer> vuelosIds) {
-        this.vuelos = vuelosIds.stream()
+    @JsonProperty("planesIds")
+    public void setPlanes(List<Integer> planesIds) {
+        this.planes = planesIds.stream()
                 .map(Vuelo::fromId)
                 .collect(Collectors.toList());
     }

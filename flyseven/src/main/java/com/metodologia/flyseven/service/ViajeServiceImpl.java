@@ -46,7 +46,7 @@ public class ViajeServiceImpl implements ViajeService {
             one.setDestino(viaje.getDestino());
             one.setVuelta(viaje.getVuelta());
             one.setIda(viaje.getIda());
-            one.setVuelos(viaje.getVuelos());
+            one.setVuelos(viaje.getPlanes());
             one.setDescripcion(viaje.getDescripcion());
             return viajeRepository.save(one);
         }
