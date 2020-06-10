@@ -1,9 +1,8 @@
 <div class="row d-flex justify-content-center">
-    <div class="col-8 d-flex justify-content-around">
-        asd
-        <div class="col-6" *nfFor="let estadistica of estadisticas;">
-            app-card-estadisticas
-            <app-card-estadisticas [titulo]="'titulo'"></app-card-estadisticas>
-        </div>
+    <h3>Estadisticas de viajero</h3>
+</div>
+<div class="row">
+    <div *ngFor="let est of estadisticas; let index=index"  class="col-6 d-flex mt-3" [ngClass]="{'justify-content-end' : index == 0 || index == 2}">    
+            <app-card-estadisticas  [estadisticas]="est"></app-card-estadisticas> 
     </div>
 </div>

@@ -6,7 +6,23 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card-estadisticas.component.css']
 })
 export class CardEstadisticasComponent implements OnInit {
-  @Input() titulo: string;
+  @Input() estadisticas: 
+  {'titulo': string,
+  'resultados' : 
+  [{
+    'pais' : string,
+    'porcentaje': string
+    },{
+      'pais' : string,
+      'porcentaje': string
+      },{
+        'pais' : string,
+        'porcentaje': string
+        },{
+          'pais' : string,
+          'porcentaje': string
+          }]
+  };
 
   constructor() { }
 
