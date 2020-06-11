@@ -26,3 +26,8 @@ div.modal-content{
     font-style: italic;
     color: red;
 }
+
+#agregar-plan {
+    padding: 14px 130px;
+    margin: 4% 0;
+}
