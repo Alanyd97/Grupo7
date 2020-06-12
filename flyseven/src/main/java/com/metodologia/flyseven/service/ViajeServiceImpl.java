@@ -1,7 +1,7 @@
 package com.metodologia.flyseven.service;
 
+import com.metodologia.flyseven.model.Plan;
 import com.metodologia.flyseven.model.Viaje;
-import com.metodologia.flyseven.model.Vuelo;
 import com.metodologia.flyseven.repository.ViajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -61,5 +61,10 @@ public class ViajeServiceImpl implements ViajeService {
     @Override
     public boolean existsById(Integer idViaje) {
         return viajeRepository.existsById(idViaje);
+    }
+
+    @Override
+    public List<Plan> findPlanesByViajeId(Integer id) {
+        return this.viajeRepository.findById(id).orElse(new Viaje()).getPlanes();
     }
 }

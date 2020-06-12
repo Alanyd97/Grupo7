@@ -1,5 +1,6 @@
 package com.metodologia.flyseven.service;
 
+import com.metodologia.flyseven.model.Plan;
 import com.metodologia.flyseven.model.Viaje;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface ViajeService {
     Viaje update(Viaje viaje);
     void delete(Integer id);
     boolean existsById(Integer idViaje);
+    List<Plan> findPlanesByViajeId(Integer id);
 }
