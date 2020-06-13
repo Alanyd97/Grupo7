@@ -40,7 +40,7 @@ public class Viaje implements Serializable {
     @JsonProperty("usuarioId")
     private Usuario usuario;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @JsonProperty("planesIds")

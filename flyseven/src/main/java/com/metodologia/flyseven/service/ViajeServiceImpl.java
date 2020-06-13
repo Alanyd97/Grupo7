@@ -5,6 +5,7 @@ import com.metodologia.flyseven.model.Viaje;
 import com.metodologia.flyseven.repository.ViajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +13,7 @@ import java.util.Objects;
 /**
  * Created by efalcon
  */
-@Component
+@Service
 public class ViajeServiceImpl implements ViajeService {
 
     private ViajeRepository viajeRepository;

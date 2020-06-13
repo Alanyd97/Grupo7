@@ -56,7 +56,7 @@ public class Vuelo extends Plan {
 
     private Integer puerta;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idVuelo")
     @JsonIdentityReference(alwaysAsId = true)
     @JsonProperty("escalaIds")
@@ -108,5 +108,10 @@ public class Vuelo extends Plan {
         Vuelo vuelo = new Vuelo();
         vuelo.setId(id);
         return vuelo;
+    }
+
+    @Override
+    public String getType() {
+        return "Vuelo";
     }
 }

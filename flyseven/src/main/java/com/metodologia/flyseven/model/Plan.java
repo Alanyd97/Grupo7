@@ -19,4 +19,5 @@ public abstract class Plan {
     protected String name;
     protected LocalDateTime inicio;
     protected LocalDateTime fin;
+    public abstract String getType();
 }
