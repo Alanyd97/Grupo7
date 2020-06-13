@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,7 +24,7 @@ public class EstadisticasService {
 
     private ViajeService viajeService;
     private RestTemplate restTemplate;
-
+    private Double HUELLA_POR_KM = 0.1;
     @Autowired
     public EstadisticasService(ViajeService viajeService, RestTemplate restTemplate) {
         this.viajeService = viajeService;
@@ -88,6 +90,12 @@ public class EstadisticasService {
             cities.add(v.getDestino().getCiudad());
         }
         return cities;
+    }
+
+    public Double getHuellaCarbono(Integer viajeId) {
+        List<Vuelo> vuelos = getVuelosByViaje(viajeId);
+        Integer kilometros = getTraveledKmsByViaje(viajeId);
+        return kilometros * HUELLA_POR_KM;
     }
 
 }

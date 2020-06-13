@@ -29,4 +29,9 @@ public class EstadisticasController {
     public Set<String> getVisitedCities(@PathVariable("viajeId") Integer id) {
         return estadisticasService.getVisitedCitiesByViaje(id);
     }
+
+    @GetMapping("/huella-carbono/{viajeId}")
+    public Double getHuellaCarbono(@PathVariable("viajeId") Integer id) {
+        return estadisticasService.getHuellaCarbono(id);
+    }
 }
