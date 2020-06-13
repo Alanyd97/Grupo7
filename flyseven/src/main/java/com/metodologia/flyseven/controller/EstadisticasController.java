@@ -4,6 +4,7 @@ import com.metodologia.flyseven.service.EstadisticasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
 import java.util.Set;
 
 /**
@@ -33,5 +34,10 @@ public class EstadisticasController {
     @GetMapping("/huella-carbono/{viajeId}")
     public Double getHuellaCarbono(@PathVariable("viajeId") Integer id) {
         return estadisticasService.getHuellaCarbono(id);
+    }
+
+    @GetMapping("/horas-vuelo/{viajeId}")
+    public Long getHorasVuelo (@PathVariable("viajeId") Integer id) {
+        return estadisticasService.getHorasVuelo(id);
     }
 }

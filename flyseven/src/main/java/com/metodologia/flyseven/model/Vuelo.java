@@ -50,8 +50,6 @@ public class Vuelo extends Plan {
     @JsonProperty("aeropuertoDestinoId")
     private Aeropuerto destino;
 
-    private Time duracion;
-
     private Float distancia;
 
     private Integer puerta;

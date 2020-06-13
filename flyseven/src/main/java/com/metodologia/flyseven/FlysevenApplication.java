@@ -75,9 +75,8 @@ public class FlysevenApplication implements CommandLineRunner {
         vuelo.setOrigen(aeropuerto);
         vuelo.setDestino(aeropuerto3);
         vuelo.setDistancia(12345.2F);
-        vuelo.setDuracion(Time.valueOf(LocalTime.now()));
-        vuelo.setInicio(LocalDateTime.now());
-        vuelo.setFin(LocalDateTime.of(2021,2,3,1,3));
+        vuelo.setInicio(LocalDateTime.of(2020,2,3,1,1));
+        vuelo.setFin(LocalDateTime.of(2020,2,3,5,3));
 
         Vuelo vuelo2 = new Vuelo();
         vuelo2.setUsuario(usuario);
@@ -89,9 +88,8 @@ public class FlysevenApplication implements CommandLineRunner {
         vuelo2.setOrigen(aeropuerto);
         vuelo2.setDestino(aeropuerto2);
         vuelo2.setDistancia(12345.2F);
-        vuelo2.setDuracion(Time.valueOf(LocalTime.now()));
-        vuelo2.setInicio(LocalDateTime.now());
-        vuelo2.setFin(LocalDateTime.of(2021,2,3,1,3));
+        vuelo2.setInicio(LocalDateTime.of(2020,2,3,1,1));
+        vuelo2.setFin(LocalDateTime.of(2020,2,4,9,3));
 
         vuelo.setEscalas(Arrays.asList(vuelo2));
 
@@ -112,7 +110,7 @@ public class FlysevenApplication implements CommandLineRunner {
                 "Colombia",
                 "Turismo",
                 usuario,
-                Arrays.asList(vuelo)));
+                Arrays.asList(vuelo2)));
 
         usuarioRepository.save(usuario);
         aeropuertoRepository.save(aeropuerto);
