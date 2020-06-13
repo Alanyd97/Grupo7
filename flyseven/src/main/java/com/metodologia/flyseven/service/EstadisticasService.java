@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -96,6 +99,15 @@ public class EstadisticasService {
         List<Vuelo> vuelos = getVuelosByViaje(viajeId);
         Integer kilometros = getTraveledKmsByViaje(viajeId);
         return kilometros * HUELLA_POR_KM;
+    }
+
+    public Long getHorasVuelo(Integer viajeId) {
+        List<Vuelo> vuelos = getVuelosByViaje(viajeId);
+        Long duracion = new Long(0);
+        for(Vuelo v: vuelos) {
+            duracion += ChronoUnit.HOURS.between(v.getInicio(),v.getFin());
+        }
+        return duracion;
     }
 
 }
