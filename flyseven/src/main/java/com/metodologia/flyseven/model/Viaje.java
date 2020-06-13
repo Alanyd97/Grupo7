@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,20 +40,20 @@ public class Viaje implements Serializable {
     @JsonProperty("usuarioId")
     private Usuario usuario;
 
-    @ManyToMany
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idVuelo")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
-    @JsonProperty("vuelosIds")
-    private List<Vuelo> vuelos;
+    @JsonProperty("planesIds")
+    private List<Plan> planes = new ArrayList<>();
 
     @JsonIgnore
-    public void setVuelos(List<Vuelo> vuelos) {
-        this.vuelos = vuelos;
+    public void setVuelos(List<Plan> vuelos) {
+        this.planes = vuelos;
     }
 
-    @JsonProperty("vuelosIds")
-    public void setVuelosIds(List<Integer> vuelosIds) {
-        this.vuelos = vuelosIds.stream()
+    @JsonProperty("planesIds")
+    public void setPlanes(List<Integer> planesIds) {
+        this.planes = planesIds.stream()
                 .map(Vuelo::fromId)
                 .collect(Collectors.toList());
     }

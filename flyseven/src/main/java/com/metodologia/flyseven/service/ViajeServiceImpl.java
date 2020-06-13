@@ -1,10 +1,11 @@
 package com.metodologia.flyseven.service;
 
+import com.metodologia.flyseven.model.Plan;
 import com.metodologia.flyseven.model.Viaje;
-import com.metodologia.flyseven.model.Vuelo;
 import com.metodologia.flyseven.repository.ViajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +13,7 @@ import java.util.Objects;
 /**
  * Created by efalcon
  */
-@Component
+@Service
 public class ViajeServiceImpl implements ViajeService {
 
     private ViajeRepository viajeRepository;
@@ -46,7 +47,7 @@ public class ViajeServiceImpl implements ViajeService {
             one.setDestino(viaje.getDestino());
             one.setVuelta(viaje.getVuelta());
             one.setIda(viaje.getIda());
-            one.setVuelos(viaje.getVuelos());
+            one.setVuelos(viaje.getPlanes());
             one.setDescripcion(viaje.getDescripcion());
             return viajeRepository.save(one);
         }
@@ -61,5 +62,10 @@ public class ViajeServiceImpl implements ViajeService {
     @Override
     public boolean existsById(Integer idViaje) {
         return viajeRepository.existsById(idViaje);
+    }
+
+    @Override
+    public List<Plan> findPlanesByViajeId(Integer id) {
+        return this.viajeRepository.findById(id).orElse(new Viaje()).getPlanes();
     }
 }

@@ -1,5 +1,6 @@
 package com.metodologia.flyseven.controller;
 
+import com.metodologia.flyseven.model.Plan;
 import com.metodologia.flyseven.model.Viaje;
 import com.metodologia.flyseven.service.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,10 @@ public class ViajeController {
     @DeleteMapping
     public void delete(@RequestParam("id") Integer id) {
         viajeService.delete(id);
+    }
+
+    @GetMapping("planes/viajeId")
+    public List<Plan> getPlanesById(@RequestParam("viajeId") Integer id) {
+        return this.viajeService.findPlanesByViajeId(id);
     }
 }
