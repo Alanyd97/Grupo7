@@ -48,8 +48,8 @@ public class ViajeController {
         viajeService.delete(id);
     }
 
-    @GetMapping
-    public List<Plan> getPlanesById(@RequestParam("id") Integer id) {
+    @GetMapping("planes/viajeId")
+    public List<Plan> getPlanesById(@RequestParam("viajeId") Integer id) {
         return this.viajeService.findPlanesByViajeId(id);
     }
 }

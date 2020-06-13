@@ -50,13 +50,20 @@ public class FlysevenApplication implements CommandLineRunner {
 
         Aeropuerto aeropuerto = new Aeropuerto();
         aeropuerto.setNombre("NombreDeAeropuerto");
-        aeropuerto.setCiudad("CiudadDeAeropuerto");
+        aeropuerto.setCiudad("Tandil");
         aeropuerto.setPais("PaisDeAeropuerto");
 
         Aeropuerto aeropuerto2 = new Aeropuerto();
         aeropuerto2.setNombre("NombreDeAeropuerto2");
-        aeropuerto2.setCiudad("CiudadDeAeropuerto2");
+        aeropuerto2.setCiudad("Azul");
         aeropuerto2.setPais("PaisDeAeropuerto2");
+
+        Aeropuerto aeropuerto3 = new Aeropuerto();
+        aeropuerto3.setNombre("NombreDeAeropuerto2");
+        aeropuerto3.setCiudad("Olavarria");
+        aeropuerto3.setPais("PaisDeAeropuerto2");
+
+
 
         Vuelo vuelo = new Vuelo();
         vuelo.setUsuario(usuario);
@@ -65,13 +72,28 @@ public class FlysevenApplication implements CommandLineRunner {
         vuelo.setAsiento("Asiento");
         vuelo.setClase("ClaseDelVuelo");
         vuelo.setCodReserva(12314123);
-        vuelo.setDestino(aeropuerto);
-        vuelo.setOrigen(aeropuerto2);
+        vuelo.setOrigen(aeropuerto);
+        vuelo.setDestino(aeropuerto3);
         vuelo.setDistancia(12345.2F);
-        Time duracion = Time.valueOf(LocalTime.now());
-        vuelo.setDuracion(duracion);
+        vuelo.setDuracion(Time.valueOf(LocalTime.now()));
         vuelo.setInicio(LocalDateTime.now());
         vuelo.setFin(LocalDateTime.of(2021,2,3,1,3));
+
+        Vuelo vuelo2 = new Vuelo();
+        vuelo2.setUsuario(usuario);
+        vuelo2.setAerolinea("Aerolinea");
+        vuelo2.setAeronave("Aeronave");
+        vuelo2.setAsiento("Asiento");
+        vuelo2.setClase("ClaseDelVuelo");
+        vuelo2.setCodReserva(12314123);
+        vuelo2.setOrigen(aeropuerto);
+        vuelo2.setDestino(aeropuerto2);
+        vuelo2.setDistancia(12345.2F);
+        vuelo2.setDuracion(Time.valueOf(LocalTime.now()));
+        vuelo2.setInicio(LocalDateTime.now());
+        vuelo2.setFin(LocalDateTime.of(2021,2,3,1,3));
+
+        vuelo.setEscalas(Arrays.asList(vuelo2));
 
         List<Viaje> viajes = new ArrayList<>();
         viajes.add(new Viaje(1,
@@ -95,6 +117,8 @@ public class FlysevenApplication implements CommandLineRunner {
         usuarioRepository.save(usuario);
         aeropuertoRepository.save(aeropuerto);
         aeropuertoRepository.save(aeropuerto2);
+        aeropuertoRepository.save(aeropuerto3);
+        vueloRepository.save(vuelo2);
         vueloRepository.save(vuelo);
         viajeRepository.saveAll(viajes);
     }
