@@ -38,11 +38,13 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
   
-  <button *ngIf="titulo == 'Agregar Viaje'" (click)="mostrarModal=true" type="button"  data-toggle="modal" data-target="#exampleModal">
-    {{txtBoton}} <img src="{{url}}" alt="">
-  </button>
-  <button *ngIf="titulo == 'Editar Viaje'" (click)="mostrarModal=true" type="button"  data-toggle="modal" data-target="#exampleModal">
-    {{txtBoton}} <img src="{{url}}" alt="">
-  </button>
+<button *ngIf="titulo == 'Agregar Viaje'" (click)="mostrarModal=true" type="button"  data-toggle="modal" data-target="#exampleModal">
+  {{txtBoton}} <img src="{{url}}" alt="">
+</button>
+<button *ngIf="titulo == 'Editar Viaje'" (click)="mostrarModal=true" type="button"  data-toggle="modal" data-target="#exampleModal">
+  {{txtBoton}} <img src="{{url}}" alt="">
+</button>
+
+<button *ngIf="titulo == 'Agregar Plan'" class="btn btn-primary" id="agregar-plan">{{txtBoton}}</button>

@@ -4,9 +4,9 @@
     </div>
     <div class="col-8">
         <app-vtable [esPlan]="true" [planes]="planes"></app-vtable>
-        <div class="centrar">
-            <button class="btn btn-primary" id="agregar-plan">Agregar plan</button>
-        </div>
+        <div class="ancho centrar">
+            <app-modal [titulo]="'Agregar Plan'" [txtBoton]="'Agregar Plan'"></app-modal>
+        </div>	
         <div class="centrar">
             <app-map-medium></app-map-medium>
         </div>
