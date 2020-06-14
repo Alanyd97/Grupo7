@@ -29,4 +29,9 @@ public class EstadisticasController {
     public Set<String> getVisitedCities(@PathVariable("viajeId") Integer id) {
         return estadisticasService.getVisitedCitiesByViaje(id);
     }
+
+    @GetMapping("/paises-visitados/{viajeId}")
+    public Set<String> getPaisesVisitados(@PathVariable("viajeId") Integer id) {
+        return estadisticasService.getVisitedCountriesByViaje(id);
+    }
 }

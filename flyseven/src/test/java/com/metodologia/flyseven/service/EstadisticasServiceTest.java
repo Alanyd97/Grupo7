@@ -43,8 +43,14 @@ public class EstadisticasServiceTest {
     }
 
     @Test
-    public void calculateVisitedCities() {
+    public void calculateVisitedCitiesTest() {
         Set<String> visitedCitiesByViaje = estadisticasService.getVisitedCitiesByViaje(1);
         assertTrue(visitedCitiesByViaje.containsAll(Arrays.asList("Olavarria", "Tandil", "Azul")));
+    }
+
+    @Test
+    public void getVisitedCounteriesTest() {
+        Set<String> visitedCountriesByViaje = estadisticasService.getVisitedCountriesByViaje(1);
+        assertTrue(visitedCountriesByViaje.contains("Argentina"));
     }
 }

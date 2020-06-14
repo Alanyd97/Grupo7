@@ -51,17 +51,17 @@ public class FlysevenApplication implements CommandLineRunner {
         Aeropuerto aeropuerto = new Aeropuerto();
         aeropuerto.setNombre("NombreDeAeropuerto");
         aeropuerto.setCiudad("Tandil");
-        aeropuerto.setPais("PaisDeAeropuerto");
+        aeropuerto.setPais("Argentina");
 
         Aeropuerto aeropuerto2 = new Aeropuerto();
         aeropuerto2.setNombre("NombreDeAeropuerto2");
         aeropuerto2.setCiudad("Azul");
-        aeropuerto2.setPais("PaisDeAeropuerto2");
+        aeropuerto2.setPais("Argentina");
 
         Aeropuerto aeropuerto3 = new Aeropuerto();
         aeropuerto3.setNombre("NombreDeAeropuerto2");
         aeropuerto3.setCiudad("Olavarria");
-        aeropuerto3.setPais("PaisDeAeropuerto2");
+        aeropuerto3.setPais("Argentina");
 
 
 
