@@ -110,4 +110,17 @@ public class EstadisticasService {
         return duracion;
     }
 
+    public Set<String> getVisitedCountriesByViaje(Integer viajeId) {
+        List<Vuelo> vuelos = getVuelosByViaje(viajeId);
+        Set<String> cities = new HashSet<>();
+        for(Vuelo v: vuelos) {
+            cities.add(v.getOrigen().getPais());
+            for (Vuelo escala : v.getEscalas()) {
+                cities.add(escala.getOrigen().getPais());
+                cities.add(escala.getDestino().getPais());
+            }
+            cities.add(v.getDestino().getPais());
+        }
+        return cities;
+    }
 }

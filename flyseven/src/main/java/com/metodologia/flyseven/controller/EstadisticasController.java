@@ -40,4 +40,9 @@ public class EstadisticasController {
     public Long getHorasVuelo (@PathVariable("viajeId") Integer id) {
         return estadisticasService.getHorasVuelo(id);
     }
+
+    @GetMapping("/paises-visitados/{viajeId}")
+    public Set<String> getPaisesVisitados(@PathVariable("viajeId") Integer id) {
+        return estadisticasService.getVisitedCountriesByViaje(id);
+    }
 }
