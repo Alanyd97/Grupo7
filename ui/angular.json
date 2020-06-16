@@ -60,6 +60,22 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
+            },
+            "ui": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ui.ts"
+                }
+              ]
             }
           }
         },
@@ -71,6 +87,9 @@
           "configurations": {
             "production": {
               "browserTarget": "fronFlyseven:build:production"
+            },
+            "local": {
+              "browserTarget": "fronFlyseven:build:local"
             }
           }
         },
