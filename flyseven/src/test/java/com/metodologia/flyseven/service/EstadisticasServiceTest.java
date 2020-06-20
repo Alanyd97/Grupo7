@@ -1,5 +1,6 @@
 package com.metodologia.flyseven.service;
 
+import com.metodologia.flyseven.model.Estadisticas;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Arrays;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by efalcon
@@ -52,5 +52,11 @@ public class EstadisticasServiceTest {
     public void getVisitedCounteriesTest() {
         Set<String> visitedCountriesByViaje = estadisticasService.getVisitedCountriesByViaje(1);
         assertTrue(visitedCountriesByViaje.contains("Argentina"));
+    }
+
+    @Test
+    public void getAllEstadisticas() {
+        Estadisticas allEstadisticasByUserId = this.estadisticasService.getAllEstadisticasByUserId(1);
+        assertNotNull(allEstadisticasByUserId);
     }
 }

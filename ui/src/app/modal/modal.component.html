@@ -39,7 +39,7 @@
       </div>
     </div>
 </div>
-  
+
 <button *ngIf="titulo == 'Agregar Viaje'" (click)="mostrarModal=true" type="button"  data-toggle="modal" data-target="#exampleModal">
   {{txtBoton}} <img src="{{url}}" alt="">
 </button>
@@ -47,4 +47,4 @@
   {{txtBoton}} <img src="{{url}}" alt="">
 </button>
 
-<button *ngIf="titulo == 'Agregar Plan'" class="btn btn-primary" id="agregar-plan">{{txtBoton}}</button>
+<button *ngIf="titulo == 'Agregar Plan'" class="btn btn-primary" id="agregar-plan" (click)="mostrarModal=true">{{txtBoton}}</button>

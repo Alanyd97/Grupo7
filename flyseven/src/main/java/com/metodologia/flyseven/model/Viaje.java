@@ -34,10 +34,11 @@ public class Viaje implements Serializable {
 
     private String descripcion;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idUsuario")
     @JsonIdentityReference(alwaysAsId = true)
     @JsonProperty("usuarioId")
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
     @ManyToMany(fetch = FetchType.EAGER)

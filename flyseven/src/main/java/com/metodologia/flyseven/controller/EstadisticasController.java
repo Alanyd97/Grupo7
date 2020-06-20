@@ -1,5 +1,6 @@
 package com.metodologia.flyseven.controller;
 
+import com.metodologia.flyseven.model.Estadisticas;
 import com.metodologia.flyseven.service.EstadisticasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,11 @@ public class EstadisticasController {
     @Autowired
     public EstadisticasController(EstadisticasService estadisticasService) {
         this.estadisticasService = estadisticasService;
+    }
+
+    @GetMapping("/{userId}")
+    public Estadisticas getAllEstadisticas(@PathVariable("userId") Integer id) {
+        return estadisticasService.getAllEstadisticasByUserId(id);
     }
 
     @GetMapping("/kilometros-recorridos/{viajeId}")
@@ -45,4 +51,6 @@ public class EstadisticasController {
     public Set<String> getPaisesVisitados(@PathVariable("viajeId") Integer id) {
         return estadisticasService.getVisitedCountriesByViaje(id);
     }
+
+
 }

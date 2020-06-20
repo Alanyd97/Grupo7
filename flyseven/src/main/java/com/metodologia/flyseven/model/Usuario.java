@@ -3,6 +3,7 @@ package com.metodologia.flyseven.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by efalcon
@@ -21,6 +22,9 @@ public class Usuario {
     private String contrasenia;
 
     private String email;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Viaje> viajes;
 
     public static Usuario fromId(Integer idUsuario) {
         Usuario usuario = new Usuario();
