@@ -19,3 +19,9 @@
 .ancho {
     width: 100%;
 }
+
+@media (max-width: 576px) {
+    .info-viaje {
+        margin: 0 0 5% 0;
+    }
+  }

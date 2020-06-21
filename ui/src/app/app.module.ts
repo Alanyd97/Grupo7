@@ -21,6 +21,7 @@ import { CardEstadisticasComponent } from './estadisticas/card-estadisticas/card
 import { MapMediumComponent } from './map-medium/map-medium.component';
 import { ViajesComponent } from './viajes/viajes.component';
 import { InfoViajeComponent } from './info-viaje/info-viaje.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,10 @@ import { InfoViajeComponent } from './info-viaje/info-viaje.component';
     TableModule,
     DropdownModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey : "AIzaSyCeaTl0-32_CVLkgkkl1Q-dp4LkEEsbepI"// google maps
+    })
   ],
   providers: [ ViajeService, VueloService ],
   bootstrap: [ AppComponent ]
