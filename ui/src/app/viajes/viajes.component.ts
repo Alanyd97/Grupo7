@@ -10,6 +10,8 @@ import { Plan } from '../model/plan';
 export class ViajesComponent implements OnInit {
   plan : Plan;
   planes : Plan[];
+  paisDestino = "argentina";// A modo de ejemplo
+  ciudadDestino = "tandil";
   url = 'http://localhost:8080/plan';
   constructor(private planService: PlanService) { }
 
