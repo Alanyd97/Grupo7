@@ -19,5 +19,6 @@ public abstract class Plan {
     protected String name;
     protected LocalDateTime inicio;
     protected LocalDateTime fin;
+    protected String coordenada;
     public abstract String getType();
 }
