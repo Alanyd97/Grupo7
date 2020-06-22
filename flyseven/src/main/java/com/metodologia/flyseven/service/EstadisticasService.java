@@ -1,21 +1,15 @@
 package com.metodologia.flyseven.service;
 
-import com.metodologia.flyseven.model.Viaje;
-import com.metodologia.flyseven.model.Vuelo;
+import com.metodologia.flyseven.model.*;
 import com.metodologia.flyseven.model.dto.Distance;
+import com.metodologia.flyseven.repository.UsuarioRepository;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.time.Duration;
-import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -26,11 +20,15 @@ import java.util.stream.Collectors;
 public class EstadisticasService {
 
     private ViajeService viajeService;
+    private UsuarioRepository usuarioRepository;
     private RestTemplate restTemplate;
-    private Double HUELLA_POR_KM = 0.1;
+    private final Double HUELLA_POR_KM = 0.1;
+
+
     @Autowired
-    public EstadisticasService(ViajeService viajeService, RestTemplate restTemplate) {
+    public EstadisticasService(ViajeService viajeService, UsuarioRepository usuarioRepository, RestTemplate restTemplate) {
         this.viajeService = viajeService;
+        this.usuarioRepository = usuarioRepository;
         this.restTemplate = restTemplate;
     }
 
@@ -103,11 +101,19 @@ public class EstadisticasService {
 
     public Long getHorasVuelo(Integer viajeId) {
         List<Vuelo> vuelos = getVuelosByViaje(viajeId);
-        Long duracion = new Long(0);
+        Long duracion = 0L;
         for(Vuelo v: vuelos) {
             duracion += ChronoUnit.HOURS.between(v.getInicio(),v.getFin());
         }
         return duracion;
+    }
+
+    public int getCantidadDeViajesByUser(Integer userId) {
+        Optional<Usuario> byId = usuarioRepository.findById(userId);
+        if(byId.isPresent()) {
+            return byId.get().getViajes().size();
+        }
+        throw new IllegalArgumentException("User doesn't exists for given ID");
     }
 
     public Set<String> getVisitedCountriesByViaje(Integer viajeId) {
@@ -122,5 +128,68 @@ public class EstadisticasService {
             cities.add(v.getDestino().getPais());
         }
         return cities;
+    }
+
+    public Estadisticas getAllEstadisticasByUserId(int userId) {
+        Usuario user = this.usuarioRepository.findById(userId)
+                .orElseThrow(IllegalArgumentException::new);
+        // Cantidad de viajes
+        List<Viaje> viajes = user.getViajes();
+
+        // Cantidad de kms
+        int cantidadDeKmsRecorridos = viajes.stream()
+                .map(x -> this.getTraveledKmsByViaje(x.getIdViaje()))
+                .reduce((x, y) -> x + y)
+                .orElse(0);
+
+        // Ciudades visitadas
+        List<Vuelo> vuelosDeViajes = viajes.stream().map(x -> x.getPlanes())
+                .reduce((x, y) -> {
+                    x.addAll(y);
+                    return x;
+                })
+                .orElse(Collections.emptyList())
+                .stream()
+                .filter(x -> x.getType().equals("Vuelo"))
+                .map(x -> (Vuelo) x)
+                .collect(Collectors.toList());
+
+        Map<String, Integer> ciudadesVisitadas = new HashMap<>();
+        vuelosDeViajes.forEach(x -> {
+            Integer obj = ciudadesVisitadas.get(x.getDestino().getCiudad());
+            if(Objects.nonNull(obj)) {
+                ciudadesVisitadas.put(x.getDestino().getCiudad(), obj++);
+            } else ciudadesVisitadas.put(x.getDestino().getCiudad(), 1);
+        });
+
+        // Paises visitados
+        Map<String, Integer> paisesVisitados = new HashMap<>();
+        vuelosDeViajes.forEach(x -> {
+            Integer obj = paisesVisitados.get(x.getDestino().getPais());
+            if(Objects.nonNull(obj)) {
+                paisesVisitados.put(x.getDestino().getPais(), obj++);
+            } else paisesVisitados.put(x.getDestino().getPais(), 1);
+        });
+
+        // Huella de carbono
+        double huellaDeCarbono = viajes.stream()
+                .map(x -> getHuellaCarbono(x.getIdViaje()))
+                .reduce((x,y) -> x+y)
+                .orElse(0D);
+
+        // Horas de vuelo
+        Long horasDeVuelo = viajes.stream()
+                .map(x -> getHorasVuelo(x.getIdViaje()))
+                .reduce((x,y) -> x+y)
+                .orElse(0L);
+
+        Estadisticas estadisticas = new Estadisticas();
+        estadisticas.setCantidadDeKmsRecorridos(cantidadDeKmsRecorridos);
+        estadisticas.setCantidadDeViajes(viajes.size());
+        estadisticas.setCantidadHorasDeVuelo(horasDeVuelo);
+        estadisticas.setHuellaDeCarbono(huellaDeCarbono);
+        estadisticas.setPaisesVisitados(paisesVisitados);
+        estadisticas.setCiudadesVisitadas(ciudadesVisitadas);
+        return estadisticas;
     }
 }
